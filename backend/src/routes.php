@@ -11,4 +11,9 @@ return function (App $app) {
         $response->getBody()->write(json_encode($data));
         return $response->withHeader('Content-Type', 'application/json');
     });
+    $app->get('/api/goodbye', function (Request $request, Response $response) {
+        $data = ['message' => 'Goodbye, see you again!'];
+        $response->getBody()->write(json_encode($data));
+        return $response->withHeader('Content-Type', 'application/json');
+    });
 };

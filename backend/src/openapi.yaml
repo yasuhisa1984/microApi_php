@@ -1,20 +1,19 @@
 openapi: 3.0.0
 info:
-  title: Sample API
-  description: A sample API to demonstrate Swagger UI integration.
+  title: Hello API
+  description: API for returning a simple greeting message.
   version: 1.0.0
 servers:
-  - url: http://localhost:8080/api/hello
+  - url: http://localhost:8080
     description: Local server
-
 paths:
   /api/hello:
     get:
-      summary: Get a hello message
-      description: Returns a simple hello message.
+      summary: Returns a greeting message
+      description: This endpoint returns a simple hello message in JSON format.
       responses:
         '200':
-          description: A JSON object with a hello message.
+          description: A successful response
           content:
             application/json:
               schema:
@@ -22,4 +21,19 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Hello, World!
+                    example: Hello, World! this is test app
+  /api/goodbye:
+    get:
+      summary: Returns a goodbye message
+      description: This endpoint returns a goodbye message.
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Goodbye, see you again!
