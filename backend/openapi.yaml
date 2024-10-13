@@ -1,0 +1,38 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: A simple API to demonstrate OpenAPI with Slim framework.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local server
+
+paths:
+  /api/hello:
+    get:
+      summary: Get Hello World message
+      description: Returns a Hello World message.
+      operationId: getHelloWorld
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Hello, World!
+  /openapi:
+    get:
+      summary: Get OpenAPI definition
+      description: Returns the OpenAPI specification as YAML.
+      operationId: getOpenApiDefinition
+      responses:
+        '200':
+          description: OpenAPI YAML file
+          content:
+            application/x-yaml:
+              schema:
+                type: string
