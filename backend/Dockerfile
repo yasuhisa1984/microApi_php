@@ -22,6 +22,11 @@ RUN echo "ServerName localhost" >> /etc/httpd/conf/httpd.conf
 # Apacheのmod_rewriteを有効化
 RUN sed -i 's/^#LoadModule rewrite_module/LoadModule rewrite_module/' /etc/httpd/conf/httpd.conf
 
+# Apache設定ファイルにAllowOverrideとRequireを追加
+RUN echo '<Directory "/var/www/html">' >> /etc/httpd/conf/httpd.conf && \
+    echo '    AllowOverride All' >> /etc/httpd/conf/httpd.conf && \
+    echo '    Require all granted' >> /etc/httpd/conf/httpd.conf && \
+    echo '</Directory>' >> /etc/httpd/conf/httpd.conf
 
 # 作業ディレクトリを設定
 WORKDIR /var/www/html
